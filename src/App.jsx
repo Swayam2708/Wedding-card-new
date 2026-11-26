@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import EnvelopeOpening from "./components/EnvelopeOpening";
 import FloralIntroScreen from "./components/FloralIntroScreen";
-import CountdownTimer from "./components/CountdownTimer";
 import SpecialRevealSection from "./components/SpecialRevealSection";
 import MainInvitationSection from "./components/MainInvitationSection";
 import WeddingEventsSection from "./components/WeddingEventsSection";
@@ -20,19 +19,21 @@ export default function App() {
   };
 
   const handleScrollNext = () => {
-    const el = document.getElementById("countdown-timer-section");
+    const el = document.getElementById("special-reveal-section");
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
-      {/* Floating Canvas for Flower Petals, Daisies & Golden Sparkles */}
+      {/* 3D Floating Flower Petals & Blossoms */}
       <PetalCanvas active={isEnvelopeOpened} />
 
-      {/* Floating Background Music Controller */}
-      <MusicPlayer isAutoPlayRequested={playAudioRequested} />
+      {/* Minimal Speaker Toggle (bottom-right, matching reference video) */}
+      {isEnvelopeOpened && (
+        <MusicPlayer isAutoPlayRequested={playAudioRequested} />
+      )}
 
-      {/* 1. Opening Luxury 3D Envelope — Full-screen overlay */}
+      {/* 1. Opening Luxury 3D Envelope */}
       <AnimatePresence>
         {!isEnvelopeOpened && (
           <EnvelopeOpening
@@ -49,24 +50,21 @@ export default function App() {
             className="invitation-viewport"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
           >
-            {/* 2. Floral Introduction Screen */}
+            {/* 2. Floral Introduction Screen (exact video frame 12 + 3D parallax) */}
             <FloralIntroScreen onScrollNext={handleScrollNext} />
 
-            {/* 3. Countdown Timer to Wedding */}
-            <CountdownTimer />
-
-            {/* 4. Special Reveal Section */}
+            {/* 3. Special Reveal Section ("A SPECIAL REVEAL", pink scratch heart) */}
             <SpecialRevealSection />
 
-            {/* 5. Main Wedding Invitation */}
+            {/* 4. Main Wedding Invitation (Ganesha, Sanskrit, Rumit with Mahek, floral band) */}
             <MainInvitationSection />
 
-            {/* 6. Wedding Events Section (6 cards) */}
+            {/* 5. Gol Dhana Ceremony Scalloped 3D Card on Sage Stripes */}
             <WeddingEventsSection />
 
-            {/* 7. Final Invitation Section */}
+            {/* 6. Final Closing Invitation (Mehta's & Shah's + corner florals + subtle RSVP) */}
             <FinalInvitationSection />
           </motion.div>
         )}

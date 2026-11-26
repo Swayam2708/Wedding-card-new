@@ -1,9 +1,8 @@
 /* ════════════════════════════════════════════════════════════════════════════
-   ROYAL WEDDING INVITATION - GLOBAL STYLES & EXACT PALETTE
+   ROYAL WEDDING INVITATION - EXACT VIDEO REPLICA + 3D DEPTH
    ════════════════════════════════════════════════════════════════════════ */
 
 :root {
-  /* Exact Colors from Specification */
   --bg-ivory: #FFFCF7;
   --light-blush-pink: #F5E4DF;
   --embossed-peach: #F1D8CF;
@@ -15,7 +14,6 @@
   --dark-olive-text: #65634F;
   --soft-grey: #DAD6CC;
 
-  /* Typography */
   --font-cursive: 'Great Vibes', 'Alex Brush', cursive;
   --font-heading: 'Cormorant Garamond', Garamond, serif;
   --font-supporting: 'Playfair Display', Georgia, serif;
@@ -23,7 +21,6 @@
   --font-hindi: 'Noto Serif Devanagari', serif;
   --font-marcellus: 'Marcellus', serif;
 
-  /* Dimensions */
   --canvas-max-width: 500px;
 }
 
@@ -54,13 +51,14 @@ html, body {
   margin: 0 auto;
   position: relative;
   background-color: var(--bg-ivory);
-  box-shadow: 0 0 80px rgba(101, 99, 79, 0.18), 0 20px 60px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 80px rgba(101, 99, 79, 0.2), 0 20px 60px rgba(0, 0, 0, 0.14);
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  perspective: 1400px;
 }
 
-/* Full-Screen Invitation Section Cards */
+/* Full-Screen Invitation Section */
 .invitation-page {
   position: relative;
   width: 100%;
@@ -71,57 +69,48 @@ html, body {
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  padding: 48px 24px 54px;
+  padding: 44px 22px 44px;
   background-color: var(--bg-ivory);
   overflow: hidden;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.15);
 }
 
-/* Subtle Sage Green Vertical Decorative Stripes */
+/* Subtle Sage Green Vertical Watercolor Stripes (exact match to video) */
 .sage-stripes-bg {
+  background-color: #FFFCF7;
   background-image: repeating-linear-gradient(
     90deg,
-    rgba(169, 185, 154, 0.09) 0px,
-    rgba(169, 185, 154, 0.09) 18px,
-    transparent 18px,
-    transparent 40px
+    rgba(169, 185, 154, 0.16) 0px,
+    rgba(169, 185, 154, 0.16) 24px,
+    rgba(255, 252, 247, 0.96) 24px,
+    rgba(255, 252, 247, 0.96) 48px
   );
 }
 
-/* Decorative Wavy Ornamental Frame — enhanced with scalloped top arch */
-.wavy-ornamental-frame {
-  position: relative;
-  background: linear-gradient(170deg, rgba(255,252,247,0.98) 0%, rgba(241,216,207,0.15) 100%);
-  border: 1.5px solid rgba(198, 161, 91, 0.4);
-  border-radius: 32px 32px 24px 24px;
-  padding: 36px 22px 28px;
-  box-shadow:
-    0 12px 40px rgba(101, 99, 79, 0.08),
-    0 2px 0 rgba(198, 161, 91, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
+/* Minimal Link Action Buttons (matches video's Open in Maps / Add to Calendar) */
+.btn-minimal-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background: transparent;
+  color: var(--dark-olive-text);
+  font-family: var(--font-details);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-bottom: 1px solid rgba(101, 99, 79, 0.35);
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
-/* Inner dashed decorative border */
-.wavy-ornamental-frame::before {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border: 1px dashed rgba(169, 185, 154, 0.5);
-  border-radius: 26px 26px 18px 18px;
-  pointer-events: none;
-}
-
-/* Corner floral accents for event cards */
-.wavy-ornamental-frame::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: "10%";
-  right: "10%";
-  height: "2px";
+.btn-minimal-link:hover {
+  color: var(--soft-champagne-gold);
+  border-bottom-color: var(--soft-champagne-gold);
+  transform: translateY(-1px);
 }
 
 /* Luxury Gold & Outline Action Buttons */
@@ -134,7 +123,7 @@ html, body {
   background: linear-gradient(135deg, #B38728 0%, #C6A15B 50%, #A87E23 100%);
   color: #FFFFFF;
   font-family: var(--font-details);
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -142,29 +131,13 @@ html, body {
   border-radius: 30px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(198, 161, 91, 0.35), 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 20px rgba(198, 161, 91, 0.35);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-gold-action::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.18) 50%, transparent 70%);
-  background-size: 200% 200%;
-  animation: shimmerBtn 3s ease-in-out infinite;
-}
-
-@keyframes shimmerBtn {
-  0% { background-position: 200% 200%; }
-  100% { background-position: -200% -200%; }
 }
 
 .btn-gold-action:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(198, 161, 91, 0.5);
+  box-shadow: 0 10px 26px rgba(198, 161, 91, 0.45);
 }
 
 .btn-outline-action {
@@ -172,102 +145,45 @@ html, body {
   align-items: center;
   justify-content: center;
   gap: 7px;
-  padding: 11px 22px;
-  background: rgba(255, 255, 255, 0.85);
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.9);
   color: var(--soft-champagne-gold);
   font-family: var(--font-details);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 30px;
-  border: 1.5px solid var(--soft-champagne-gold);
+  border: 1.2px solid var(--soft-champagne-gold);
   cursor: pointer;
   transition: all 0.25s ease;
-  backdrop-filter: blur(4px);
 }
 
 .btn-outline-action:hover {
   background: var(--soft-champagne-gold);
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(198, 161, 91, 0.3);
-}
-
-/* Gold Foil Shimmer Text */
-@keyframes goldShimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-.gold-foil-text {
-  background: linear-gradient(120deg, #9E7422 0%, #C6A15B 30%, #FFF5B7 50%, #C6A15B 70%, #9E7422 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: goldShimmer 5s linear infinite;
 }
 
 /* Floating Gentle Effect */
 @keyframes floatGentle {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-7px) rotate(0.6deg); }
+  50% { transform: translateY(-5px) rotate(0.5deg); }
 }
 
 .float-slow {
   animation: floatGentle 4.5s ease-in-out infinite;
 }
 
-/* Butterfly Flutter */
-@keyframes flutterButterfly {
-  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-  25% { transform: translate(5px, -9px) rotate(5deg) scale(1.05); }
-  50% { transform: translate(9px, -4px) rotate(-3deg) scale(0.97); }
-  75% { transform: translate(4px, -11px) rotate(3deg) scale(1.03); }
-  100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-}
-
-.butterfly-flutter {
-  animation: flutterButterfly 5.5s ease-in-out infinite;
-}
-
 /* Scroll Cue Bouncing Chevron */
 @keyframes bounceDown {
   0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(7px); }
-  60% { transform: translateY(3px); }
+  40% { transform: translateY(5px); }
+  60% { transform: translateY(2px); }
 }
 
 .chevron-bounce {
   display: inline-block;
   animation: bounceDown 2.2s infinite ease-in-out;
-}
-
-/* Countdown digit flip animation */
-@keyframes digitFlip {
-  0% { transform: rotateX(-90deg); opacity: 0; }
-  100% { transform: rotateX(0deg); opacity: 1; }
-}
-
-/* Soft Entrance Fade */
-@keyframes softFadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Pulsing glow ring for wax seal */
-@keyframes pulseRing {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-  50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0; }
-}
-
-/* Responsive: on very narrow screens remove horizontal padding */
-@media (max-width: 360px) {
-  .invitation-page {
-    padding: 40px 16px 44px;
-  }
-  .wavy-ornamental-frame {
-    padding: 28px 14px 24px;
-  }
 }
