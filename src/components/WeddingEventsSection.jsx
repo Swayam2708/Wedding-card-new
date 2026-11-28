@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { weddingConfig } from "../weddingConfig";
 import Card3D from "./Card3D";
 
@@ -220,10 +220,7 @@ function ScallopedCard({ ev, onAddToCalendar }) {
 }
 
 export default function WeddingEventsSection() {
-  const [showAllEvents, setShowAllEvents] = useState(false);
   const events = weddingConfig.events;
-  const primaryEvent = events[0]; // GOL DHANA CEREMONY (from reference video)
-  const otherEvents = events.slice(1);
 
   const handleAddToCalendar = (ev) => {
     const title = encodeURIComponent(`${ev.name} - ${weddingConfig.couple.groom} & ${weddingConfig.couple.bride}`);
@@ -235,47 +232,19 @@ export default function WeddingEventsSection() {
 
   return (
     <section
-      id="event-gol-dhana"
+      id="wedding-events"
       className="invitation-page sage-stripes-bg"
       style={{
         paddingTop: "42px",
-        paddingBottom: "42px",
+        paddingBottom: "48px",
         justifyContent: "center",
-        gap: "24px",
+        gap: "30px",
         minHeight: "auto"
       }}
     >
-      {/* Primary Event Card (exact video match) */}
-      <ScallopedCard ev={primaryEvent} onAddToCalendar={handleAddToCalendar} />
-
-      {/* Optional expandable toggle for the remaining 5 ceremonies */}
-      {otherEvents.length > 0 && (
-        <div style={{ textAlign: "center", zIndex: 5 }}>
-          <button
-            type="button"
-            onClick={() => setShowAllEvents((v) => !v)}
-            className="btn-outline-action"
-            style={{ fontSize: "9.5px", padding: "8px 18px" }}
-          >
-            {showAllEvents ? "Hide Other Ceremonies" : `View All ${events.length} Wedding Celebrations`}
-          </button>
-        </div>
-      )}
-
-      <AnimatePresence>
-        {showAllEvents && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            style={{ width: "100%", display: "flex", flexDirection: "column", gap: "28px", overflow: "hidden" }}
-          >
-            {otherEvents.map((ev) => (
-              <ScallopedCard key={ev.id} ev={ev} onAddToCalendar={handleAddToCalendar} />
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {events.map((ev) => (
+        <ScallopedCard key={ev.id} ev={ev} onAddToCalendar={handleAddToCalendar} />
+      ))}
     </section>
   );
 }

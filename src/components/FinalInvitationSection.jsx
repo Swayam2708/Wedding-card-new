@@ -5,8 +5,8 @@ import { weddingConfig } from "../weddingConfig";
 /**
  * Exact match to reference video frame_26:
  * Pure ivory #FFFCF7, top-right & bottom-left watercolor floral corners,
- * heartfelt closing message, "Warm Regards," and cursive "Mehta's & Shah's".
- * Includes a subtle expandable RSVP & Maps drawer.
+ * family blessings/compliments/maternal/RSVP/address details from PDF (excluding "To"),
+ * heartfelt closing message, "Warm Regards,", and cursive "Ganesh & Mamta Sharma".
  */
 export default function FinalInvitationSection() {
   const { closing, rsvp, couple } = weddingConfig;
@@ -18,10 +18,10 @@ export default function FinalInvitationSection() {
     const name = guestName.trim() || "Guest";
     const text = encodeURIComponent(
       `Heartfelt Congratulations ${couple.groom} & ${couple.bride}!\n` +
-      `We are delighted to confirm our attendance for your celebrations.\n\n` +
+      `We are delighted to confirm our attendance for your wedding celebrations.\n\n` +
       `Guest Name: ${name}\n` +
       `Attending Guests: ${guestCount}\n\n` +
-      `Looking forward to celebrating with you at ${rsvp.locationAddress}!`
+      `Looking forward to celebrating with you in Dharamshala!`
     );
     window.open(`https://wa.me/${rsvp.phone}?text=${text}`, "_blank", "noopener,noreferrer");
   };
@@ -31,7 +31,7 @@ export default function FinalInvitationSection() {
       className="invitation-page final-invitation-section"
       style={{
         backgroundColor: "#FFFCF7",
-        paddingTop: "90px",
+        paddingTop: "80px",
         paddingBottom: "70px",
         position: "relative",
         justifyContent: "center",
@@ -66,40 +66,145 @@ export default function FinalInvitationSection() {
         }}
       />
 
-      {/* Heartfelt Closing Message */}
+      {/* Family Details & Heartfelt Closing Message */}
       <motion.div
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.9 }}
-        style={{ width: "100%", maxWidth: "340px", margin: "0 auto", position: "relative", zIndex: 5 }}
+        style={{ width: "100%", maxWidth: "350px", margin: "0 auto", position: "relative", zIndex: 5 }}
       >
+        {/* With Best Wishes and Blessings */}
+        <p
+          style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: "15px",
+            fontWeight: 600,
+            letterSpacing: "0.06em",
+            color: "var(--dark-olive-text)",
+            marginBottom: "6px"
+          }}
+        >
+          {closing.blessingsTitle}
+        </p>
         <p
           style={{
             fontFamily: "var(--font-supporting)",
-            fontStyle: "italic",
-            fontSize: "14.5px",
+            fontSize: "12.5px",
+            lineHeight: 1.6,
+            color: "var(--dark-olive-text)",
+            marginBottom: "18px"
+          }}
+        >
+          {closing.blessingsLines.map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              {i < closing.blessingsLines.length - 1 && <br />}
+            </React.Fragment>
+          ))}
+        </p>
+
+        {/* With Best Compliments From */}
+        <p
+          style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: "14px",
+            fontWeight: 600,
+            letterSpacing: "0.06em",
+            color: "var(--soft-champagne-gold)",
+            marginBottom: "5px"
+          }}
+        >
+          {closing.complimentsTitle}
+        </p>
+        <p
+          style={{
+            fontFamily: "var(--font-supporting)",
+            fontSize: "12px",
             lineHeight: 1.65,
             color: "var(--dark-olive-text)",
             marginBottom: "18px"
           }}
         >
-          We would be delighted<br />
-          to share this beautiful beginning with you
+          {closing.complimentsLines.map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              {i < closing.complimentsLines.length - 1 && <br />}
+            </React.Fragment>
+          ))}
+        </p>
+
+        {/* Maternal Family */}
+        <p
+          style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: "14px",
+            fontWeight: 600,
+            letterSpacing: "0.06em",
+            color: "var(--soft-champagne-gold)",
+            marginBottom: "5px"
+          }}
+        >
+          {closing.maternalTitle}
+        </p>
+        <p
+          style={{
+            fontFamily: "var(--font-supporting)",
+            fontSize: "12px",
+            lineHeight: 1.65,
+            color: "var(--dark-olive-text)",
+            marginBottom: "18px"
+          }}
+        >
+          {closing.maternalLines.map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              {i < closing.maternalLines.length - 1 && <br />}
+            </React.Fragment>
+          ))}
+        </p>
+
+        {/* R.S.V.P. */}
+        <p
+          style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: "14px",
+            fontWeight: 600,
+            letterSpacing: "0.1em",
+            color: "var(--dark-olive-text)",
+            marginBottom: "4px"
+          }}
+        >
+          {closing.rsvpTitle}
+        </p>
+        <p
+          style={{
+            fontFamily: "var(--font-supporting)",
+            fontSize: "12.5px",
+            lineHeight: 1.6,
+            color: "var(--dark-olive-text)",
+            marginBottom: "20px"
+          }}
+        >
+          {closing.rsvpLines.map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              {i < closing.rsvpLines.length - 1 && <br />}
+            </React.Fragment>
+          ))}
         </p>
 
         <p
           style={{
             fontFamily: "var(--font-supporting)",
             fontStyle: "italic",
-            fontSize: "14.5px",
+            fontSize: "14px",
             lineHeight: 1.65,
             color: "var(--dark-olive-text)",
-            marginBottom: "34px"
+            marginBottom: "26px"
           }}
         >
-          With love in our hearts,<br />
-          we await your gracious presence
+          {closing.messageLine1}
         </p>
 
         <p
@@ -115,7 +220,7 @@ export default function FinalInvitationSection() {
         <h3
           style={{
             fontFamily: "var(--font-cursive)",
-            fontSize: "clamp(40px, 10vw, 52px)",
+            fontSize: "clamp(36px, 9vw, 48px)",
             color: "var(--dark-olive-text)",
             fontWeight: 400,
             lineHeight: 1.15
@@ -123,9 +228,23 @@ export default function FinalInvitationSection() {
         >
           {closing.familyNames}
         </h3>
+        <p
+          style={{
+            fontFamily: "var(--font-details)",
+            fontSize: "10px",
+            letterSpacing: "0.08em",
+            color: "var(--dark-olive-text)",
+            opacity: 0.8,
+            marginTop: "6px",
+            lineHeight: 1.5
+          }}
+        >
+          {closing.location}<br />
+          {closing.mobiles}
+        </p>
 
         {/* Subtle RSVP / Directions Toggle */}
-        <div style={{ marginTop: "32px" }}>
+        <div style={{ marginTop: "28px" }}>
           <button
             type="button"
             onClick={() => setShowRsvp((v) => !v)}

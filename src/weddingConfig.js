@@ -11,17 +11,21 @@ export const weddingConfig = {
     bride: "Akanksha",
     brideInitials: "A",
     monogram: "AA",
-    groomParents: "SMT. MAMTA & SH. GANESH SHARMA",
-    groomParentsSubtitle: "joyfully invite you to celebrate the bond of their beloved son",
-    brideParents: "D/O SMT. SARESTA & SH. SANJAY KUMAR KASHYAP",
+    groomGrandparents: "Grandson of Late Basudeo Ji Surolia and Veena Devi Surolia",
+    groomParents: "Son of Sh. Ganesh Sharma and Smt. Mamta Sharma",
+    groomParentsHeader: "SH. GANESH SHARMA & SMT. MAMTA SHARMA",
+    groomParentsSubtitle: "joyfully invite you to celebrate the wedding of their beloved son",
+    brideGrandparents: "Granddaughter of Sh. Onkar Chand Kashyap and Smt. Kamlesh Kashyap",
+    brideParents: "Daughter of Sh. Sanjay Kumar Kashyap and Smt. Saresta Kashyap",
   },
 
   // Invocations & Blessings
   spiritual: {
-    shlokaTitle: "॥ श्री गणेशाय नमः ॥",
+    shlokaTitle: "|| Shree Ganeshay Namah ||",
+    shlokaSubtitle: "|| Shree Jeen Bhawani Namah ||",
     shlokaText: "वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ । निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥",
     blessingText: "Every beautiful beginning deserves to be celebrated with the ones who matter most",
-    ceremonyTag: "FOR THEIR WEDDING CEREMONY"
+    ceremonyTag: "5TH DECEMBER 2026 • WEDDING INVITATION"
   },
 
   // Special Reveal Date
@@ -33,33 +37,20 @@ export const weddingConfig = {
     dateMonthYear: "December 2026",
     day: "SATURDAY",
     fullDateText: "Saturday, 5th December, 2026",
-    time: "5:00 PM ONWARDS"
+    time: "WEDDING CELEBRATIONS"
   },
 
-  // 7 Wedding Events
+  // 7 Wedding Events (from Wedding Invitation PDF)
   events: [
-    {
-      id: "varmala-dinner",
-      name: "VARMALA AND DINNER",
-      subtitle: "The Sacred Wedding Vows & Celebration",
-      date: "Saturday, 5th December, 2026",
-      time: "7:00 PM ONWARDS",
-      venue: "HERITAGE NARWANA BANQUET & RESORT",
-      address: "Dharamshala, Himachal Pradesh",
-      mapsUrl: "https://maps.google.com/?q=Heritage+Narwana+Banquet+%26+Resort+Dharamshala",
-      calendarIso: "20261205T190000/20261205T233000",
-      accent: "#C6A15B",
-      illustration: "assets/w-wedding-BtwN4UQz.png"
-    },
     {
       id: "mehndi",
       name: "MEHNDI",
-      subtitle: "Intricate Henna Motifs & Folk Melodies",
+      subtitle: "4th December'2026",
       date: "Friday, 4th December, 2026",
-      time: "1:00 PM ONWARDS",
-      venue: "D'POLO CLUB & SPA RESORT",
-      address: "Dharamshala, Himachal Pradesh",
-      mapsUrl: "https://maps.google.com/?q=D%27Polo+Club+%26+Spa+Resort+Dharamshala",
+      time: "1:00 PM",
+      venue: "D'Polo Club & Spa Resort",
+      address: "Dharamshala",
+      mapsUrl: "https://maps.google.com/?q=D+Polo+Club+and+Spa+Resort+Dharamshala",
       calendarIso: "20261204T130000/20261204T170000",
       accent: "#A9B99A",
       illustration: "assets/w-mehndi-CUpnixOF.png"
@@ -67,12 +58,12 @@ export const weddingConfig = {
     {
       id: "tilak",
       name: "TILAK",
-      subtitle: "Auspicious Welcome & Sacred Blessings",
+      subtitle: "4th December'2026",
       date: "Friday, 4th December, 2026",
-      time: "6:00 PM ONWARDS",
-      venue: "D'POLO CLUB & SPA RESORT",
-      address: "Dharamshala, Himachal Pradesh",
-      mapsUrl: "https://maps.google.com/?q=D%27Polo+Club+%26+Spa+Resort+Dharamshala",
+      time: "6:00 PM",
+      venue: "D'Polo Club & Spa Resort",
+      address: "Dharamshala",
+      mapsUrl: "https://maps.google.com/?q=D+Polo+Club+and+Spa+Resort+Dharamshala",
       calendarIso: "20261204T180000/20261204T190000",
       accent: "#C6A15B",
       illustration: "assets/venue-illustration-CJozVy2q.png"
@@ -80,25 +71,25 @@ export const weddingConfig = {
     {
       id: "sangeet",
       name: "SANGEET",
-      subtitle: "An Evening of Music, Dance & Revelry",
+      subtitle: "4th December'2026",
       date: "Friday, 4th December, 2026",
-      time: "7:00 PM ONWARDS",
-      venue: "D'POLO CLUB & SPA RESORT",
-      address: "Dharamshala, Himachal Pradesh",
-      mapsUrl: "https://maps.google.com/?q=D%27Polo+Club+%26+Spa+Resort+Dharamshala",
-      calendarIso: "20261204T190000/20261204T233000",
+      time: "7:00 PM",
+      venue: "D'Polo Club & Spa Resort",
+      address: "Dharamshala",
+      mapsUrl: "https://maps.google.com/?q=D+Polo+Club+and+Spa+Resort+Dharamshala",
+      calendarIso: "20261204T190000/20261204T230000",
       accent: "#D98291",
       illustration: "assets/cel-sangeet.webp"
     },
     {
       id: "haldi",
       name: "HALDI",
-      subtitle: "Golden Sunshine & Turmeric Blessings",
+      subtitle: "5th December'2026",
       date: "Saturday, 5th December, 2026",
-      time: "11:00 AM ONWARDS",
-      venue: "D'POLO CLUB & SPA RESORT",
-      address: "Dharamshala, Himachal Pradesh",
-      mapsUrl: "https://maps.google.com/?q=D%27Polo+Club+%26+Spa+Resort+Dharamshala",
+      time: "11:00 AM",
+      venue: "D'Polo Club & Spa Resort",
+      address: "Dharamshala",
+      mapsUrl: "https://maps.google.com/?q=D+Polo+Club+and+Spa+Resort+Dharamshala",
       calendarIso: "20261205T110000/20261205T130000",
       accent: "#E8C879",
       illustration: "assets/w-haldi-DjMtDyPQ.png"
@@ -106,46 +97,85 @@ export const weddingConfig = {
     {
       id: "chaak-bhaat",
       name: "CHAAK BHAAT (MAYRA)",
-      subtitle: "Maternal Blessings & Traditional Festivities",
+      subtitle: "5th December'2026",
       date: "Saturday, 5th December, 2026",
-      time: "1:00 PM ONWARDS",
-      venue: "D'POLO CLUB & SPA RESORT",
-      address: "Dharamshala, Himachal Pradesh",
-      mapsUrl: "https://maps.google.com/?q=D%27Polo+Club+%26+Spa+Resort+Dharamshala",
+      time: "1:00 PM",
+      venue: "D'Polo Club & Spa Resort",
+      address: "Dharamshala",
+      mapsUrl: "https://maps.google.com/?q=D+Polo+Club+and+Spa+Resort+Dharamshala",
       calendarIso: "20261205T130000/20261205T160000",
       accent: "#E99B91",
-      illustration: "assets/venue-illustration-CJozVy2q.png"
+      illustration: "assets/couple-gavdev-DxDeDDBt.png"
     },
     {
       id: "baraat",
       name: "BARAAT",
-      subtitle: "The Royal Groom Procession",
+      subtitle: "5th December'2026",
       date: "Saturday, 5th December, 2026",
-      time: "5:00 PM ONWARDS",
-      venue: "D'POLO CLUB & SPA RESORT",
-      address: "Dharamshala, Himachal Pradesh",
-      mapsUrl: "https://maps.google.com/?q=D%27Polo+Club+%26+Spa+Resort+Dharamshala",
+      time: "5:00 PM",
+      venue: "D'Polo Club & Spa Resort",
+      address: "Dharamshala",
+      mapsUrl: "https://maps.google.com/?q=D+Polo+Club+and+Spa+Resort+Dharamshala",
       calendarIso: "20261205T170000/20261205T190000",
       accent: "#C6A15B",
+      illustration: "assets/w-wedding-BtwN4UQz.png"
+    },
+    {
+      id: "varmala-dinner",
+      name: "VARMALA AND DINNER",
+      subtitle: "5th December'2026",
+      date: "Saturday, 5th December, 2026",
+      time: "7:00 PM",
+      venue: "Heritage Narwana Banquet & Resort",
+      address: "Dharamshala",
+      mapsUrl: "https://maps.google.com/?q=Heritage+Narwana+Banquet+and+Resort+Dharamshala",
+      calendarIso: "20261205T190000/20261205T233000",
+      accent: "#D98291",
       illustration: "assets/cel-wedding.webp"
     }
   ],
 
-  // Closing & RSVP
+  // Closing & Family Details (Page 1 From & Page 4)
   closing: {
-    messageLine1: "We would be delighted to share this beautiful beginning with you",
+    messageLine1: "Your blessings are our greatest treasure",
     messageLine2: "With love in our hearts, we await your gracious presence",
     signOff: "Warm Regards,",
-    familyNames: "Sharma's & Kashyap's",
-    location: "Dharamshala, Himachal Pradesh · December 2026"
+    familyNames: "Ganesh & Mamta Sharma",
+    location: "18 Ashok Vihar, Ambabari, Jaipur, 302039",
+    mobiles: "Mobile 9928077518, 7691863278",
+    blessingsTitle: "With Best Wishes and Blessings",
+    blessingsLines: [
+      "Shree Makkhan Ji, Shree Satyanarayan Ji,",
+      "Shree Hari Prashad Ji and Surolia Family"
+    ],
+    complimentsTitle: "With Best Compliments From",
+    complimentsLines: [
+      "Nishant and Poonam Sharma",
+      "Ankit and Nikita Sharma",
+      "Abhishek and Ankita Sharma",
+      "Anubhav Sharma (7691863278)",
+      "Nitya, Ansh, Lavyah"
+    ],
+    maternalTitle: "Maternal Family",
+    maternalLines: [
+      "Brijmohan Sharma Ji",
+      "Dr. Anup and Dr. Manisha Sharma",
+      "Anand and Kiran Sharma",
+      "Manish and Rajni Sharma"
+    ],
+    rsvpTitle: "R.S.V.P.",
+    rsvpLines: [
+      "Kishan Surolia Ji",
+      "Ganesh Sharma and Mamta Sharma"
+    ]
   },
 
   // RSVP Phone (WhatsApp)
   rsvp: {
     phone: "919928077518",
     defaultGuests: 2,
-    locationAddress: "Heritage Narwana Banquet & Resort, Dharamshala",
-    mapsUrl: "https://maps.google.com/?q=Heritage+Narwana+Banquet+%26+Resort+Dharamshala"
+    locationAddress: "D'Polo Club & Spa Resort & Heritage Narwana Banquet & Resort, Dharamshala",
+    mapsUrl: "https://maps.google.com/?q=Heritage+Narwana+Banquet+and+Resort+Dharamshala"
   },
 
   // Background Soundtrack

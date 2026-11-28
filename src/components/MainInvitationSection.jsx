@@ -12,8 +12,8 @@ const fadeUp = {
 
 /**
  * Exact match to reference video frame_22 & frame_30:
- * Pure ivory background, Ganesha + Sanskrit shloka, parents, cursive "Rumit with Mahek",
- * bride parents, "FOR THEIR GOL DHANA CEREMONY", and wide horizontal watercolor floral band.
+ * Pure ivory background, Ganesha + Sanskrit/Hindi invocations, grandparents & parents,
+ * cursive "Ayush weds Akanksha", and wide horizontal watercolor floral band.
  */
 export default function MainInvitationSection() {
   const { couple, spiritual } = weddingConfig;
@@ -44,43 +44,41 @@ export default function MainInvitationSection() {
           />
           <div
             style={{
-              fontFamily: "var(--font-hindi)",
+              fontFamily: "var(--font-heading)",
               fontSize: "13px",
               color: "var(--dark-olive-text)",
               fontWeight: 600,
               letterSpacing: "0.1em",
-              marginBottom: "6px"
+              marginBottom: "3px"
             }}
           >
             {spiritual.shlokaTitle}
           </div>
-          <p
+          <div
             style={{
-              fontFamily: "var(--font-hindi)",
-              fontSize: "10.5px",
+              fontFamily: "var(--font-heading)",
+              fontSize: "12.5px",
               color: "var(--dark-olive-text)",
-              lineHeight: 1.55,
-              maxWidth: "290px",
-              opacity: 0.82
+              fontWeight: 500,
+              letterSpacing: "0.08em",
+              marginBottom: "6px"
             }}
           >
-            वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br />
-            निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
-          </p>
+            {spiritual.shlokaSubtitle}
+          </div>
           <p
             style={{
               fontFamily: "var(--font-supporting)",
               fontStyle: "italic",
-              fontSize: "12.5px",
+              fontSize: "12px",
               color: "var(--dark-olive-text)",
-              marginTop: "12px",
+              marginTop: "8px",
               maxWidth: "310px",
               lineHeight: 1.5,
               opacity: 0.9
             }}
           >
-            Every beautiful beginning deserves to be celebrated<br />
-            with the ones who matter most
+            {spiritual.blessingText}
           </p>
         </motion.div>
 
@@ -93,33 +91,7 @@ export default function MainInvitationSection() {
             transition={{ duration: 0.9, delay: 0.1 }}
             style={{ textAlign: "center", transformStyle: "preserve-3d" }}
           >
-            <p
-              style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: "13px",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "var(--dark-olive-text)",
-                fontWeight: 500,
-                marginBottom: "3px"
-              }}
-            >
-              {couple.groomParents}
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-supporting)",
-                fontStyle: "italic",
-                fontSize: "11.5px",
-                color: "var(--dark-olive-text)",
-                marginBottom: "10px",
-                opacity: 0.88
-              }}
-            >
-              {couple.groomParentsSubtitle}
-            </p>
-
-            {/* Couple Names */}
+            {/* Groom & His Family */}
             <div style={{ margin: "6px 0", transform: "translateZ(22px)" }}>
               <h2
                 style={{
@@ -132,18 +104,49 @@ export default function MainInvitationSection() {
               >
                 {couple.groom}
               </h2>
-              <span
-                style={{
-                  fontFamily: "var(--font-supporting)",
-                  fontStyle: "italic",
-                  fontSize: "12px",
-                  color: "var(--dark-olive-text)",
-                  display: "block",
-                  margin: "2px 0"
-                }}
-              >
-                with
-              </span>
+            </div>
+
+            <p
+              style={{
+                fontFamily: "var(--font-supporting)",
+                fontStyle: "italic",
+                fontSize: "11.5px",
+                color: "var(--dark-olive-text)",
+                lineHeight: 1.45,
+                marginBottom: "3px",
+                opacity: 0.9
+              }}
+            >
+              {couple.groomGrandparents}
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-heading)",
+                fontSize: "12.5px",
+                letterSpacing: "0.06em",
+                color: "var(--dark-olive-text)",
+                fontWeight: 500,
+                marginBottom: "8px"
+              }}
+            >
+              {couple.groomParents}
+            </p>
+
+            <span
+              style={{
+                fontFamily: "var(--font-supporting)",
+                fontStyle: "italic",
+                fontSize: "13px",
+                color: "var(--dark-olive-text)",
+                display: "block",
+                margin: "4px 0"
+              }}
+            >
+              weds
+            </span>
+
+            {/* Bride & Her Family */}
+            <div style={{ margin: "6px 0", transform: "translateZ(22px)" }}>
               <h2
                 style={{
                   fontFamily: "var(--font-cursive)",
@@ -159,13 +162,25 @@ export default function MainInvitationSection() {
 
             <p
               style={{
+                fontFamily: "var(--font-supporting)",
+                fontStyle: "italic",
+                fontSize: "11.5px",
+                color: "var(--dark-olive-text)",
+                lineHeight: 1.45,
+                marginTop: "6px",
+                marginBottom: "3px",
+                opacity: 0.9
+              }}
+            >
+              {couple.brideGrandparents}
+            </p>
+            <p
+              style={{
                 fontFamily: "var(--font-heading)",
-                fontSize: "13px",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
+                fontSize: "12.5px",
+                letterSpacing: "0.06em",
                 color: "var(--dark-olive-text)",
                 fontWeight: 500,
-                marginTop: "10px",
                 marginBottom: "14px"
               }}
             >
@@ -180,16 +195,17 @@ export default function MainInvitationSection() {
                 textTransform: "uppercase",
                 color: "var(--dark-olive-text)",
                 lineHeight: 1.5,
-                fontWeight: 400
+                fontWeight: 500
               }}
             >
-              {spiritual.ceremonyTag}
+              SATURDAY, 5TH DECEMBER, 2026<br />
+              WEDDING CELEBRATIONS
             </p>
           </motion.div>
         </Card3D>
       </div>
 
-      {/* Wide Horizontal Floral Band with Hummingbird & Butterflies (exact match to frame_22/30) */}
+      {/* Wide Horizontal Floral Band with Hummingbird & Butterflies */}
       <motion.div
         initial={{ opacity: 0, y: 14 }}
         whileInView={{ opacity: 1, y: 0 }}
