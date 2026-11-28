@@ -1,8 +1,11 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { weddingConfig } from "../weddingConfig";
 import Card3D from "./Card3D";
 
+/**
+ * Exact scalloped / wavy ornamental SVG arch frame matching reference video frame_24 & frame_28.
+ */
 function ScallopedCard({ ev, onAddToCalendar }) {
   return (
     <Card3D maxTilt={7} perspective={1100} glare>
@@ -10,17 +13,17 @@ function ScallopedCard({ ev, onAddToCalendar }) {
         initial={{ opacity: 0, y: 24, scale: 0.96 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.85, ease: "easeOut" }}
         style={{
           position: "relative",
           width: "100%",
           maxWidth: "370px",
           margin: "0 auto",
-          padding: "52px 34px 54px",
+          padding: "54px 36px 56px",
           transformStyle: "preserve-3d"
         }}
       >
-        {/* SVG Scalloped Ornamental Border */}
+        {/* SVG Scalloped Ornamental Border (exact silhouette from video) */}
         <svg
           viewBox="0 0 360 470"
           preserveAspectRatio="none"
@@ -59,7 +62,7 @@ function ScallopedCard({ ev, onAddToCalendar }) {
               C 94,30 112,40 132,34
               C 148,28 158,14 180,14 Z
             "
-            fill="rgba(255, 252, 247, 0.95)"
+            fill="rgba(255, 252, 247, 0.94)"
             stroke="#DAD6CC"
             strokeWidth="2"
           />
@@ -97,29 +100,16 @@ function ScallopedCard({ ev, onAddToCalendar }) {
 
         {/* 3D Floating Content Inside Scalloped Frame */}
         <div style={{ position: "relative", zIndex: 5, transform: "translateZ(26px)" }}>
-          <span
-            style={{
-              fontFamily: "var(--font-supporting)",
-              fontStyle: "italic",
-              fontSize: "11px",
-              color: "var(--soft-champagne-gold)",
-              display: "block",
-              marginBottom: "6px"
-            }}
-          >
-            {ev.subtitle}
-          </span>
-
           <h2
             style={{
               fontFamily: "var(--font-heading)",
-              fontSize: "clamp(24px, 6vw, 30px)",
-              letterSpacing: "0.1em",
+              fontSize: "clamp(25px, 6.2vw, 31px)",
+              letterSpacing: "0.11em",
               textTransform: "uppercase",
               color: "var(--dark-olive-text)",
-              fontWeight: 500,
-              lineHeight: 1.18,
-              marginBottom: "14px"
+              fontWeight: 400,
+              lineHeight: 1.2,
+              marginBottom: "18px"
             }}
           >
             {ev.name}
@@ -144,25 +134,24 @@ function ScallopedCard({ ev, onAddToCalendar }) {
               letterSpacing: "0.14em",
               textTransform: "uppercase",
               color: "var(--dark-olive-text)",
-              marginBottom: "12px"
+              marginBottom: "14px"
             }}
           >
             {ev.time}
           </p>
 
-          {/* Watercolor Illustration */}
-          <div style={{ margin: "10px auto 12px", maxWidth: "115px" }}>
+          {/* Small Watercolor Venue Illustration (matching frame_24) */}
+          <div style={{ margin: "10px auto 12px", maxWidth: "110px" }}>
             <img
               src={ev.illustration}
-              alt={ev.name}
+              alt={ev.venue}
               style={{
                 width: "100%",
                 height: "auto",
-                maxHeight: "68px",
+                maxHeight: "64px",
                 objectFit: "contain",
                 display: "block",
-                margin: "0 auto",
-                borderRadius: "8px"
+                margin: "0 auto"
               }}
             />
           </div>
@@ -170,8 +159,8 @@ function ScallopedCard({ ev, onAddToCalendar }) {
           <h3
             style={{
               fontFamily: "var(--font-heading)",
-              fontSize: "16.5px",
-              fontWeight: 600,
+              fontSize: "17px",
+              fontWeight: 500,
               color: "var(--dark-olive-text)",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
@@ -189,13 +178,13 @@ function ScallopedCard({ ev, onAddToCalendar }) {
               textTransform: "uppercase",
               color: "var(--dark-olive-text)",
               opacity: 0.78,
-              marginBottom: "16px"
+              marginBottom: "18px"
             }}
           >
             {ev.address}
           </p>
 
-          {/* Minimal Action Links */}
+          {/* Minimal Action Links (exact match to frame_24/28) */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
             <a
               href={ev.mapsUrl}
@@ -231,11 +220,14 @@ function ScallopedCard({ ev, onAddToCalendar }) {
 }
 
 export default function WeddingEventsSection() {
+  const [showAllEvents, setShowAllEvents] = useState(false);
   const events = weddingConfig.events;
+  const primaryEvent = events[0]; // GOL DHANA CEREMONY (from reference video)
+  const otherEvents = events.slice(1);
 
   const handleAddToCalendar = (ev) => {
     const title = encodeURIComponent(`${ev.name} - ${weddingConfig.couple.groom} & ${weddingConfig.couple.bride}`);
-    const details = encodeURIComponent(`We cordially invite you to celebrate ${ev.name}.\nVenue: ${ev.venue}, ${ev.address}`);
+    const details = encodeURIComponent(`We cordially invite you to celebrate our ${ev.name}.\nVenue: ${ev.venue}, ${ev.address}`);
     const location = encodeURIComponent(`${ev.venue}, ${ev.address}`);
     const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${ev.calendarIso}&details=${details}&location=${location}`;
     window.open(url, "_blank", "noopener,noreferrer");
@@ -243,51 +235,47 @@ export default function WeddingEventsSection() {
 
   return (
     <section
-      id="wedding-celebrations"
+      id="event-gol-dhana"
       className="invitation-page sage-stripes-bg"
       style={{
-        paddingTop: "48px",
-        paddingBottom: "48px",
-        justifyContent: "flex-start",
-        gap: "30px",
+        paddingTop: "42px",
+        paddingBottom: "42px",
+        justifyContent: "center",
+        gap: "24px",
         minHeight: "auto"
       }}
     >
-      {/* Section Title */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-      >
-        <h2
-          style={{
-            fontFamily: "var(--font-heading)",
-            fontSize: "clamp(24px, 6vw, 30px)",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "var(--dark-olive-text)",
-            fontWeight: 500
-          }}
-        >
-          Wedding Celebrations
-        </h2>
-        <div
-          style={{
-            width: "70px",
-            height: "1px",
-            background: "linear-gradient(90deg, transparent, var(--soft-champagne-gold), transparent)",
-            margin: "10px auto 0"
-          }}
-        />
-      </motion.div>
+      {/* Primary Event Card (exact video match) */}
+      <ScallopedCard ev={primaryEvent} onAddToCalendar={handleAddToCalendar} />
 
-      {/* All 7 Scalloped 3D Event Cards */}
-      <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: "28px" }}>
-        {events.map((ev) => (
-          <ScallopedCard key={ev.id} ev={ev} onAddToCalendar={handleAddToCalendar} />
-        ))}
-      </div>
+      {/* Optional expandable toggle for the remaining 5 ceremonies */}
+      {otherEvents.length > 0 && (
+        <div style={{ textAlign: "center", zIndex: 5 }}>
+          <button
+            type="button"
+            onClick={() => setShowAllEvents((v) => !v)}
+            className="btn-outline-action"
+            style={{ fontSize: "9.5px", padding: "8px 18px" }}
+          >
+            {showAllEvents ? "Hide Other Ceremonies" : `View All ${events.length} Wedding Celebrations`}
+          </button>
+        </div>
+      )}
+
+      <AnimatePresence>
+        {showAllEvents && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            style={{ width: "100%", display: "flex", flexDirection: "column", gap: "28px", overflow: "hidden" }}
+          >
+            {otherEvents.map((ev) => (
+              <ScallopedCard key={ev.id} ev={ev} onAddToCalendar={handleAddToCalendar} />
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

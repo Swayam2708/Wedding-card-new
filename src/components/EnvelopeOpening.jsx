@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { weddingConfig } from "../weddingConfig";
 import Card3D from "./Card3D";
 
 export default function EnvelopeOpening({ onOpenComplete, onPlayAudio }) {
@@ -136,7 +135,7 @@ export default function EnvelopeOpening({ onOpenComplete, onPlayAudio }) {
               boxShadow: "0 20px 70px rgba(101, 99, 79, 0.28)"
             }}
           >
-            {/* Stage 1: Closed 3D Embossed Envelope */}
+            {/* Stage 1: Closed 3D Embossed Envelope (matches reference frame_00) */}
             <AnimatePresence>
               {stage === "ready" && (
                 <motion.div
@@ -162,52 +161,6 @@ export default function EnvelopeOpening({ onOpenComplete, onPlayAudio }) {
                       }}
                     />
 
-                    {/* Custom Monogram Seal Overlay for Ayush & Akanksha */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "49%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%) translateZ(22px)",
-                        width: "92px",
-                        height: "92px",
-                        borderRadius: "50%",
-                        background: "radial-gradient(circle at 35% 30%, #FFFDF8 0%, #F7E8C8 55%, #D9B36C 100%)",
-                        border: "2.5px solid #C6A15B",
-                        boxShadow: "0 4px 18px rgba(130, 96, 36, 0.35), inset 0 2px 6px rgba(255,255,255,0.8)",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        pointerEvents: "none"
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontFamily: "var(--font-heading)",
-                          fontSize: "26px",
-                          fontWeight: 600,
-                          letterSpacing: "0.06em",
-                          color: "#9A7228",
-                          lineHeight: 1
-                        }}
-                      >
-                        {weddingConfig.couple.monogram}
-                      </span>
-                      <span
-                        style={{
-                          fontFamily: "var(--font-details)",
-                          fontSize: "6.5px",
-                          letterSpacing: "0.18em",
-                          textTransform: "uppercase",
-                          color: "#8C6825",
-                          marginTop: "3px"
-                        }}
-                      >
-                        5 DEC 2026
-                      </span>
-                    </div>
-
                     {/* Subtle Gold Seal Shimmer Ring */}
                     <motion.div
                       animate={{ scale: [1, 1.25, 1], opacity: [0.45, 0, 0.45] }}
@@ -225,7 +178,7 @@ export default function EnvelopeOpening({ onOpenComplete, onPlayAudio }) {
                       }}
                     />
 
-                    {/* Subtle "TAP TO OPEN" at bottom */}
+                    {/* Subtle "TAP TO OPEN" at bottom matching frame_00 */}
                     <motion.div
                       animate={{ opacity: [0.65, 1, 0.65] }}
                       transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
@@ -262,7 +215,7 @@ export default function EnvelopeOpening({ onOpenComplete, onPlayAudio }) {
               )}
             </AnimatePresence>
 
-            {/* Video 1: Flap Opening */}
+            {/* Video 1: Flap Opening (env.mp4) */}
             <motion.video
               ref={video1Ref}
               src="assets/env.mp4"
@@ -282,7 +235,7 @@ export default function EnvelopeOpening({ onOpenComplete, onPlayAudio }) {
               }}
             />
 
-            {/* Video 2: Floral Scatter & Reveal */}
+            {/* Video 2: Floral Scatter & Oval Frame Reveal (intro-video-2-a-H3NxSy.mp4) */}
             <motion.video
               ref={video2Ref}
               src="assets/intro-video-2-a-H3NxSy.mp4"

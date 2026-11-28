@@ -1,11 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { weddingConfig } from "../weddingConfig";
 import Card3D from "./Card3D";
 
+/**
+ * Exact match to reference video frame_12:
+ * Full-screen watercolor floral border, central oval frame with RM monogram & Rumit & Mahek,
+ * watercolor beach & sailboats at bottom, and subtle "SWIPE DOWN" cue.
+ * Enhanced with interactive 3D perspective tilt.
+ */
 export default function FloralIntroScreen({ onScrollNext }) {
-  const { couple, reveal } = weddingConfig;
-
   return (
     <section
       id="intro-screen"
@@ -32,10 +35,10 @@ export default function FloralIntroScreen({ onScrollNext }) {
           alignItems: "center"
         }}
       >
-        {/* Full-bleed Watercolor Floral Border & Beach */}
+        {/* Full-bleed Hero Watercolor Illustration (oval RM + Rumit & Mahek + beach) */}
         <motion.img
           src="assets/hero-bg-RvVOmFvi.png"
-          alt="Ayush & Akanksha Floral Invitation"
+          alt="Rumit & Mahek Floral Monogram"
           initial={{ scale: 1.03, opacity: 0.9 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.1, ease: "easeOut" }}
@@ -51,88 +54,7 @@ export default function FloralIntroScreen({ onScrollNext }) {
           }}
         />
 
-        {/* Central Ivory Oval Overlay displaying Ayush & Akanksha */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.0, delay: 0.25 }}
-          style={{
-            position: "absolute",
-            top: "20.5%",
-            left: "50%",
-            transform: "translateX(-50%) translateZ(26px)",
-            width: "54%",
-            maxWidth: "240px",
-            height: "36%",
-            maxHeight: "290px",
-            borderRadius: "50%",
-            background: "radial-gradient(ellipse at center, #FFFCF7 68%, rgba(255, 252, 247, 0.95) 86%, rgba(255, 252, 247, 0) 100%)",
-            border: "1.5px solid rgba(198, 161, 91, 0.45)",
-            boxShadow: "inset 0 0 24px rgba(245, 228, 223, 0.35), 0 8px 26px rgba(101, 99, 79, 0.08)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "16px",
-            textAlign: "center",
-            zIndex: 8
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "var(--font-details)",
-              fontSize: "8.5px",
-              letterSpacing: "0.24em",
-              textTransform: "uppercase",
-              color: "var(--soft-champagne-gold)",
-              fontWeight: 600,
-              marginBottom: "6px"
-            }}
-          >
-            Wedding Invitation
-          </span>
-
-          <div
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontSize: "clamp(32px, 8vw, 40px)",
-              color: "var(--soft-champagne-gold)",
-              fontWeight: 500,
-              letterSpacing: "0.08em",
-              lineHeight: 1,
-              marginBottom: "6px"
-            }}
-          >
-            {couple.monogram}
-          </div>
-
-          <h1
-            style={{
-              fontFamily: "var(--font-cursive)",
-              fontSize: "clamp(30px, 7.5vw, 38px)",
-              color: "var(--dark-olive-text)",
-              fontWeight: 400,
-              lineHeight: 1.05,
-              marginBottom: "8px"
-            }}
-          >
-            {couple.groom} &amp; {couple.bride}
-          </h1>
-
-          <span
-            style={{
-              fontFamily: "var(--font-supporting)",
-              fontStyle: "italic",
-              fontSize: "11px",
-              color: "var(--dark-olive-text)",
-              opacity: 0.85
-            }}
-          >
-            {reveal.fullDateText}
-          </span>
-        </motion.div>
-
-        {/* Delicate Swipe Down Indicator over the beach */}
+        {/* Delicate Swipe Down Indicator over the beach (exact match to frame_20/frame_12) */}
         <motion.div
           onClick={onScrollNext}
           initial={{ opacity: 0, y: 8 }}
