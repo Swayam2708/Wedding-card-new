@@ -4,19 +4,59 @@ import { weddingConfig } from "../weddingConfig";
 
 /**
  * Minimal frosted-glass speaker toggle matching the exact bottom-right icon in the reference video.
+ * Mounted from page 1 so music starts immediately when the user taps the opening envelope (or first interaction).
  */
 export default function MusicPlayer({ isAutoPlayRequested }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
+  const hasStartedRef = useRef(false);
 
+  const startAudio = () => {
+    const audio = audioRef.current;
+    if (!audio || hasStartedRef.current) return;
+    audio.volume = 0.65;
+    audio
+      .play()
+      .then(() => {
+        hasStartedRef.current = true;
+        setIsPlaying(true);
+      })
+      .catch(() => {});
+  };
+
+  // Try autoplay on mount and unlock on very first user gesture anywhere on page 1
   useEffect(() => {
-    if (isAutoPlayRequested && audioRef.current && !isPlaying) {
-      audioRef.current.volume = 0.65;
-      audioRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
-    }
-  }, [isAutoPlayRequested]);
+    startAudio();
 
-  const togglePlay = () => {
+    const unlockOnGesture = () => {
+      startAudio();
+      if (hasStartedRef.current) {
+        window.removeEventListener("pointerdown", unlockOnGesture);
+        window.removeEventListener("touchstart", unlockOnGesture);
+        window.removeEventListener("keydown", unlockOnGesture);
+      }
+    };
+
+    window.addEventListener("pointerdown", unlockOnGesture, { passive: true });
+    window.addEventListener("touchstart", unlockOnGesture, { passive: true });
+    window.addEventListener("keydown", unlockOnGesture, { passive: true });
+
+    return () => {
+      window.removeEventListener("pointerdown", unlockOnGesture);
+      window.removeEventListener("touchstart", unlockOnGesture);
+      window.removeEventListener("keydown", unlockOnGesture);
+    };
+  }, []);
+
+  // Also trigger when envelope tap explicitly requests playback
+  useEffect(() => {
+    if (isAutoPlayRequested && !isPlaying) {
+      startAudio();
+    }
+  }, [isAutoPlayRequested, isPlaying]);
+
+  const togglePlay = (e) => {
+    e.stopPropagation();
     const audio = audioRef.current;
     if (!audio) return;
     if (isPlaying) {
@@ -24,7 +64,13 @@ export default function MusicPlayer({ isAutoPlayRequested }) {
       setIsPlaying(false);
     } else {
       audio.volume = 0.65;
-      audio.play().then(() => setIsPlaying(true)).catch(() => {});
+      audio
+        .play()
+        .then(() => {
+          hasStartedRef.current = true;
+          setIsPlaying(true);
+        })
+        .catch(() => {});
     }
   };
 
@@ -44,7 +90,7 @@ export default function MusicPlayer({ isAutoPlayRequested }) {
           position: "fixed",
           bottom: "22px",
           right: "20px",
-          zIndex: 900,
+          zIndex: 1100,
           width: "38px",
           height: "38px",
           borderRadius: "50%",

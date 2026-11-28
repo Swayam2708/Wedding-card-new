@@ -28,10 +28,8 @@ export default function App() {
       {/* 3D Floating Flower Petals & Blossoms */}
       <PetalCanvas active={isEnvelopeOpened} />
 
-      {/* Minimal Speaker Toggle (bottom-right, matching reference video) */}
-      {isEnvelopeOpened && (
-        <MusicPlayer isAutoPlayRequested={playAudioRequested} />
-      )}
+      {/* Minimal Speaker Toggle (mounted from page 1 so song starts immediately on tap) */}
+      <MusicPlayer isAutoPlayRequested={playAudioRequested} />
 
       {/* 1. Opening Luxury 3D Envelope */}
       <AnimatePresence>
