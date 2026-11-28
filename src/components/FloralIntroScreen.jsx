@@ -38,7 +38,7 @@ export default function FloralIntroScreen({ onScrollNext }) {
         {/* Full-bleed Hero Watercolor Illustration (oval RM + Rumit & Mahek + beach) */}
         <motion.img
           src="assets/hero-bg-RvVOmFvi.png"
-          alt="Rumit & Mahek Floral Monogram"
+          alt="Ayush & Akanksha Floral Monogram"
           initial={{ scale: 1.03, opacity: 0.9 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.1, ease: "easeOut" }}

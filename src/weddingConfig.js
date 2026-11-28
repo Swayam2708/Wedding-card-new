@@ -6,14 +6,14 @@
 export const weddingConfig = {
   // Couple Details
   couple: {
-    groom: "Rumit",
-    groomInitials: "R",
-    bride: "Mahek",
-    brideInitials: "M",
-    monogram: "RM",
-    groomParents: "MRS. SHILPA & MR. BHARAT MEHTA",
+    groom: "Ayush",
+    groomInitials: "A",
+    bride: "Akanksha",
+    brideInitials: "A",
+    monogram: "AA",
+    groomParents: "SMT. MAMTA & SH. GANESH SHARMA",
     groomParentsSubtitle: "joyfully invite you to celebrate the bond of their beloved son",
-    brideParents: "D/O MRS. BINA & MR. NIREN SHAH",
+    brideParents: "D/O SMT. SARESTA & SH. SANJAY KUMAR KASHYAP",
   },
 
   // Invocations & Blessings
@@ -123,7 +123,7 @@ export const weddingConfig = {
     messageLine1: "We would be delighted to share this beautiful beginning with you",
     messageLine2: "With love in our hearts, we await your gracious presence",
     signOff: "Warm Regards,",
-    familyNames: "Mehta's & Shah's",
+    familyNames: "Sharma's & Kashyap's",
     location: "Ahmedabad, Gujarat · July 2026"
   },
 
