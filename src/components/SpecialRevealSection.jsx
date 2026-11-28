@@ -178,13 +178,27 @@ export default function SpecialRevealSection() {
         {weddingConfig.reveal.title}
       </motion.h2>
 
-      {/* 3D Interactive Heart Scratch Container */}
-      <Card3D maxTilt={8} perspective={900}>
+      {/* 3D Interactive & Animated Heart Scratch Container */}
+      <Card3D maxTilt={14} perspective={800} glare>
         <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.85 }}
+          animate={{
+            rotateY: isRevealed ? [0, 360] : [-6, 6, -6],
+            rotateX: [3, -3, 3],
+            y: [0, -7, 0],
+            scale: [1, 1.03, 1]
+          }}
+          transition={{
+            opacity: { duration: 0.8 },
+            rotateY: isRevealed
+              ? { duration: 0.9, ease: "easeInOut" }
+              : { repeat: Infinity, duration: 5.5, ease: "easeInOut" },
+            rotateX: { repeat: Infinity, duration: 4.5, ease: "easeInOut" },
+            y: { repeat: Infinity, duration: 3.6, ease: "easeInOut" },
+            scale: { repeat: Infinity, duration: 3.2, ease: "easeInOut" }
+          }}
           style={{
             position: "relative",
             width: "260px",
@@ -195,6 +209,27 @@ export default function SpecialRevealSection() {
             transformStyle: "preserve-3d"
           }}
         >
+          {/* Soft 3D Back Shadow Layer */}
+          <svg
+            viewBox="0 0 280 260"
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              transform: "translateZ(-18px) translateY(8px) scale(0.98)",
+              opacity: 0.25,
+              filter: "blur(10px)",
+              pointerEvents: "none"
+            }}
+          >
+            <path
+              d="M 140,65 C 140,13 25,13 25,98 C 25,161 104,203 140,242 C 176,203 255,161 255,98 C 255,13 140,13 140,65 Z"
+              fill="#D98291"
+            />
+          </svg>
+
           {/* Revealed Pink-Outlined Heart Underlay (exact match to frame_18/32) */}
           <svg
             viewBox="0 0 280 260"
@@ -202,12 +237,20 @@ export default function SpecialRevealSection() {
               width: "100%",
               height: "100%",
               display: "block",
-              filter: "drop-shadow(0 8px 20px rgba(217, 130, 145, 0.16))"
+              transform: "translateZ(10px)",
+              filter: "drop-shadow(0 12px 24px rgba(217, 130, 145, 0.24))"
             }}
           >
+            <defs>
+              <radialGradient id="heart3dShine" cx="35%" cy="28%" r="70%">
+                <stop offset="0%" stopColor="#FFFFFF" />
+                <stop offset="60%" stopColor="#FFFCF7" />
+                <stop offset="100%" stopColor="#F8E7EA" />
+              </radialGradient>
+            </defs>
             <path
               d="M 140,65 C 140,13 25,13 25,98 C 25,161 104,203 140,242 C 176,203 255,161 255,98 C 255,13 140,13 140,65 Z"
-              fill="#FFFCF7"
+              fill="url(#heart3dShine)"
               stroke="#E26D8A"
               strokeWidth="3.5"
             />
@@ -249,6 +292,7 @@ export default function SpecialRevealSection() {
               height: "100%",
               cursor: "pointer",
               touchAction: "none",
+              transform: "translateZ(20px)",
               zIndex: 10
             }}
           />
