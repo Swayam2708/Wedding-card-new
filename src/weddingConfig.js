@@ -21,99 +21,112 @@ export const weddingConfig = {
     shlokaTitle: "॥ श्री गणेशाय नमः ॥",
     shlokaText: "वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ । निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥",
     blessingText: "Every beautiful beginning deserves to be celebrated with the ones who matter most",
-    ceremonyTag: "FOR THEIR GOL DHANA CEREMONY"
+    ceremonyTag: "FOR THEIR WEDDING CEREMONY"
   },
 
   // Special Reveal Date
   reveal: {
     title: "A SPECIAL REVEAL",
     subtitle: "Scratch or tap to reveal our auspicious date",
-    dateNumber: "20",
+    dateNumber: "5",
     dateSuffix: "th",
-    dateMonthYear: "July 2026",
-    day: "MONDAY",
-    fullDateText: "Monday, 20th of July, 2026",
-    time: "9:30 AM ONWARDS"
+    dateMonthYear: "December 2026",
+    day: "SATURDAY",
+    fullDateText: "Saturday, 5th December, 2026",
+    time: "5:00 PM ONWARDS"
   },
 
-  // 6 Wedding Events (as specified in guidelines)
+  // 7 Wedding Events
   events: [
     {
-      id: "gol-dhana",
-      name: "GOL DHANA CEREMONY",
-      subtitle: "The Sacred Engagement Ritual",
-      date: "Monday, 20th of July, 2026",
-      time: "9:30 AM ONWARDS",
-      venue: "LA SERATA BANQUETS",
-      address: "Shilaj, Ahmedabad, Gujarat",
-      mapsUrl: "https://maps.google.com/?q=La+Serata+Banquets+Shilaj+Ahmedabad",
-      calendarIso: "20260720T093000/20260720T143000",
-      accent: "#C6A15B",
-      illustration: "assets/venue-illustration-CJozVy2q.png"
-    },
-    {
-      id: "haldi",
-      name: "HALDI CEREMONY",
-      subtitle: "Golden Sunshine & Turmeric Blessings",
-      date: "Saturday, 18th of July, 2026",
-      time: "10:00 AM ONWARDS",
-      venue: "SUNBEAM COURTYARD",
-      address: "Sindhu Bhavan Road, Ahmedabad",
-      mapsUrl: "https://maps.google.com/?q=Sindhu+Bhavan+Road+Ahmedabad",
-      calendarIso: "20260718T100000/20260718T130000",
-      accent: "#E8C879",
-      illustration: "assets/w-haldi-DjMtDyPQ.png"
-    },
-    {
-      id: "mehendi",
-      name: "MEHENDI CEREMONY",
-      subtitle: "Intricate Henna Motifs & Folk Melodies",
-      date: "Saturday, 18th of July, 2026",
-      time: "4:00 PM ONWARDS",
-      venue: "GRAND CRYSTAL LAWNS",
-      address: "SG Highway, Ahmedabad",
-      mapsUrl: "https://maps.google.com/?q=SG+Highway+Ahmedabad",
-      calendarIso: "20260718T160000/20260718T200000",
-      accent: "#A9B99A",
-      illustration: "assets/w-mehndi-CUpnixOF.png"
-    },
-    {
-      id: "sangeet",
-      name: "SANGEET NIGHT",
-      subtitle: "An Evening of Music, Dance & Revelry",
-      date: "Sunday, 19th of July, 2026",
+      id: "varmala-dinner",
+      name: "VARMALA AND DINNER",
+      subtitle: "The Sacred Wedding Vows & Celebration",
+      date: "Saturday, 5th December, 2026",
       time: "7:00 PM ONWARDS",
-      venue: "ROYAL BALLROOM",
-      address: "Bodakdev, Ahmedabad",
-      mapsUrl: "https://maps.google.com/?q=Bodakdev+Ahmedabad",
-      calendarIso: "20260719T190000/20260719T233000",
-      accent: "#D98291",
-      illustration: "assets/cel-sangeet.webp"
-    },
-    {
-      id: "wedding",
-      name: "WEDDING CEREMONY",
-      subtitle: "The Sacred Vows of Vivah Sanskar",
-      date: "Monday, 20th of July, 2026",
-      time: "11:30 AM ONWARDS",
-      venue: "THE GRAND PAVILION",
-      address: "Shilaj, Ahmedabad",
-      mapsUrl: "https://maps.google.com/?q=La+Serata+Banquets+Shilaj+Ahmedabad",
-      calendarIso: "20260720T113000/20260720T160000",
+      venue: "HERITAGE NARWANA BANQUET & RESORT",
+      address: "Dharamshala, Himachal Pradesh",
+      mapsUrl: "https://maps.google.com/?q=Heritage+Narwana+Banquet+%26+Resort+Dharamshala",
+      calendarIso: "20261205T190000/20261205T233000",
       accent: "#C6A15B",
       illustration: "assets/w-wedding-BtwN4UQz.png"
     },
     {
-      id: "reception",
-      name: "GALA RECEPTION",
-      subtitle: "Dinner & Celebration with Newlyweds",
-      date: "Monday, 20th of July, 2026",
-      time: "7:30 PM ONWARDS",
-      venue: "SERATA EMERALD HALL",
-      address: "Shilaj, Ahmedabad",
-      mapsUrl: "https://maps.google.com/?q=La+Serata+Banquets+Shilaj+Ahmedabad",
-      calendarIso: "20260720T193000/20260720T233000",
+      id: "mehndi",
+      name: "MEHNDI",
+      subtitle: "Intricate Henna Motifs & Folk Melodies",
+      date: "Friday, 4th December, 2026",
+      time: "1:00 PM ONWARDS",
+      venue: "D'POLO CLUB & SPA RESORT",
+      address: "Dharamshala, Himachal Pradesh",
+      mapsUrl: "https://maps.google.com/?q=D%27Polo+Club+%26+Spa+Resort+Dharamshala",
+      calendarIso: "20261204T130000/20261204T170000",
+      accent: "#A9B99A",
+      illustration: "assets/w-mehndi-CUpnixOF.png"
+    },
+    {
+      id: "tilak",
+      name: "TILAK",
+      subtitle: "Auspicious Welcome & Sacred Blessings",
+      date: "Friday, 4th December, 2026",
+      time: "6:00 PM ONWARDS",
+      venue: "D'POLO CLUB & SPA RESORT",
+      address: "Dharamshala, Himachal Pradesh",
+      mapsUrl: "https://maps.google.com/?q=D%27Polo+Club+%26+Spa+Resort+Dharamshala",
+      calendarIso: "20261204T180000/20261204T190000",
+      accent: "#C6A15B",
+      illustration: "assets/venue-illustration-CJozVy2q.png"
+    },
+    {
+      id: "sangeet",
+      name: "SANGEET",
+      subtitle: "An Evening of Music, Dance & Revelry",
+      date: "Friday, 4th December, 2026",
+      time: "7:00 PM ONWARDS",
+      venue: "D'POLO CLUB & SPA RESORT",
+      address: "Dharamshala, Himachal Pradesh",
+      mapsUrl: "https://maps.google.com/?q=D%27Polo+Club+%26+Spa+Resort+Dharamshala",
+      calendarIso: "20261204T190000/20261204T233000",
+      accent: "#D98291",
+      illustration: "assets/cel-sangeet.webp"
+    },
+    {
+      id: "haldi",
+      name: "HALDI",
+      subtitle: "Golden Sunshine & Turmeric Blessings",
+      date: "Saturday, 5th December, 2026",
+      time: "11:00 AM ONWARDS",
+      venue: "D'POLO CLUB & SPA RESORT",
+      address: "Dharamshala, Himachal Pradesh",
+      mapsUrl: "https://maps.google.com/?q=D%27Polo+Club+%26+Spa+Resort+Dharamshala",
+      calendarIso: "20261205T110000/20261205T130000",
+      accent: "#E8C879",
+      illustration: "assets/w-haldi-DjMtDyPQ.png"
+    },
+    {
+      id: "chaak-bhaat",
+      name: "CHAAK BHAAT (MAYRA)",
+      subtitle: "Maternal Blessings & Traditional Festivities",
+      date: "Saturday, 5th December, 2026",
+      time: "1:00 PM ONWARDS",
+      venue: "D'POLO CLUB & SPA RESORT",
+      address: "Dharamshala, Himachal Pradesh",
+      mapsUrl: "https://maps.google.com/?q=D%27Polo+Club+%26+Spa+Resort+Dharamshala",
+      calendarIso: "20261205T130000/20261205T160000",
       accent: "#E99B91",
+      illustration: "assets/venue-illustration-CJozVy2q.png"
+    },
+    {
+      id: "baraat",
+      name: "BARAAT",
+      subtitle: "The Royal Groom Procession",
+      date: "Saturday, 5th December, 2026",
+      time: "5:00 PM ONWARDS",
+      venue: "D'POLO CLUB & SPA RESORT",
+      address: "Dharamshala, Himachal Pradesh",
+      mapsUrl: "https://maps.google.com/?q=D%27Polo+Club+%26+Spa+Resort+Dharamshala",
+      calendarIso: "20261205T170000/20261205T190000",
+      accent: "#C6A15B",
       illustration: "assets/cel-wedding.webp"
     }
   ],
@@ -124,15 +137,15 @@ export const weddingConfig = {
     messageLine2: "With love in our hearts, we await your gracious presence",
     signOff: "Warm Regards,",
     familyNames: "Sharma's & Kashyap's",
-    location: "Ahmedabad, Gujarat · July 2026"
+    location: "Dharamshala, Himachal Pradesh · December 2026"
   },
 
   // RSVP Phone (WhatsApp)
   rsvp: {
-    phone: "919651088662",
+    phone: "919928077518",
     defaultGuests: 2,
-    locationAddress: "La Serata Banquets, Shilaj, Ahmedabad",
-    mapsUrl: "https://maps.google.com/?q=La+Serata+Banquets+Shilaj+Ahmedabad"
+    locationAddress: "Heritage Narwana Banquet & Resort, Dharamshala",
+    mapsUrl: "https://maps.google.com/?q=Heritage+Narwana+Banquet+%26+Resort+Dharamshala"
   },
 
   // Background Soundtrack

@@ -183,7 +183,7 @@ export default function MainInvitationSection() {
                 fontWeight: 400
               }}
             >
-              FOR THEIR GOL DHANA<br />CEREMONY
+              {spiritual.ceremonyTag}
             </p>
           </motion.div>
         </Card3D>

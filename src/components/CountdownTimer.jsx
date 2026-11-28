@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { weddingConfig } from "../weddingConfig";
 
-// Wedding date: 20 July 2026 at 09:30 AM IST
-const WEDDING_DATE = new Date("2026-07-20T09:30:00+05:30");
+// Wedding date: 5 December 2026 at 05:00 PM IST
+const WEDDING_DATE = new Date("2026-12-05T17:00:00+05:30");
 
 function pad(n) {
   return String(n).padStart(2, "0");
@@ -118,7 +118,7 @@ export default function CountdownTimer() {
             marginTop: "6px"
           }}
         >
-          Monday · 20th July 2026
+          {weddingConfig.reveal.fullDateText}
         </div>
       </motion.div>
 
