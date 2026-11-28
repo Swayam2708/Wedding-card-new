@@ -10,13 +10,8 @@ const fadeUp = {
   transition: { duration: 0.85, ease: "easeOut" }
 };
 
-/**
- * Exact match to reference video frame_22 & frame_30:
- * Pure ivory background, Ganesha + Sanskrit shloka, parents, cursive "Rumit with Mahek",
- * bride parents, "FOR THEIR GOL DHANA CEREMONY", and wide horizontal watercolor floral band.
- */
 export default function MainInvitationSection() {
-  const { couple, spiritual } = weddingConfig;
+  const { couple, spiritual, reveal } = weddingConfig;
 
   return (
     <section
@@ -31,7 +26,7 @@ export default function MainInvitationSection() {
       }}
     >
       <div style={{ padding: "0 24px", width: "100%", maxWidth: "420px", margin: "0 auto" }}>
-        {/* Top Spiritual Invocation */}
+        {/* Top Spiritual Invocation (from Page 2) */}
         <motion.div
           {...fadeUp}
           style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "18px" }}
@@ -40,48 +35,32 @@ export default function MainInvitationSection() {
             src="assets/ganesh-idol-TubyYjSJ.png"
             alt="Lord Ganesha"
             className="float-slow"
-            style={{ width: "42px", height: "auto", marginBottom: "8px" }}
+            style={{ width: "44px", height: "auto", marginBottom: "10px" }}
           />
           <div
             style={{
-              fontFamily: "var(--font-hindi)",
+              fontFamily: "var(--font-heading)",
               fontSize: "13px",
               color: "var(--dark-olive-text)",
               fontWeight: 600,
               letterSpacing: "0.1em",
-              marginBottom: "6px"
+              marginBottom: "3px"
             }}
           >
             {spiritual.shlokaTitle}
           </div>
-          <p
+          <div
             style={{
-              fontFamily: "var(--font-hindi)",
-              fontSize: "10.5px",
+              fontFamily: "var(--font-heading)",
+              fontSize: "13px",
               color: "var(--dark-olive-text)",
-              lineHeight: 1.55,
-              maxWidth: "290px",
-              opacity: 0.82
+              fontWeight: 600,
+              letterSpacing: "0.1em",
+              marginBottom: "10px"
             }}
           >
-            वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br />
-            निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
-          </p>
-          <p
-            style={{
-              fontFamily: "var(--font-supporting)",
-              fontStyle: "italic",
-              fontSize: "12.5px",
-              color: "var(--dark-olive-text)",
-              marginTop: "12px",
-              maxWidth: "310px",
-              lineHeight: 1.5,
-              opacity: 0.9
-            }}
-          >
-            Every beautiful beginning deserves to be celebrated<br />
-            with the ones who matter most
-          </p>
+            {spiritual.shlokaSubtitle}
+          </div>
         </motion.div>
 
         {/* 3D Typography Centerpiece */}
@@ -93,64 +72,58 @@ export default function MainInvitationSection() {
             transition={{ duration: 0.9, delay: 0.1 }}
             style={{ textAlign: "center", transformStyle: "preserve-3d" }}
           >
-            <p
-              style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: "13px",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "var(--dark-olive-text)",
-                fontWeight: 500,
-                marginBottom: "3px"
-              }}
-            >
-              {couple.groomParents}
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-supporting)",
-                fontStyle: "italic",
-                fontSize: "11.5px",
-                color: "var(--dark-olive-text)",
-                marginBottom: "10px",
-                opacity: 0.88
-              }}
-            >
-              {couple.groomParentsSubtitle}
-            </p>
-
-            {/* Couple Names */}
-            <div style={{ margin: "6px 0", transform: "translateZ(22px)" }}>
+            {/* Groom */}
+            <div style={{ transform: "translateZ(20px)" }}>
               <h2
                 style={{
                   fontFamily: "var(--font-cursive)",
-                  fontSize: "clamp(58px, 14vw, 72px)",
+                  fontSize: "clamp(54px, 13.5vw, 68px)",
                   color: "var(--dark-olive-text)",
                   fontWeight: 400,
-                  lineHeight: 0.95
+                  lineHeight: 1.0
                 }}
               >
                 {couple.groom}
               </h2>
-              <span
-                style={{
-                  fontFamily: "var(--font-supporting)",
-                  fontStyle: "italic",
-                  fontSize: "12px",
-                  color: "var(--dark-olive-text)",
-                  display: "block",
-                  margin: "2px 0"
-                }}
-              >
-                with
-              </span>
+            </div>
+
+            <p
+              style={{
+                fontFamily: "var(--font-supporting)",
+                fontSize: "11.5px",
+                color: "var(--dark-olive-text)",
+                lineHeight: 1.55,
+                marginTop: "4px",
+                marginBottom: "12px",
+                opacity: 0.9
+              }}
+            >
+              {couple.groomGrandparents}<br />
+              {couple.groomParents}
+            </p>
+
+            <span
+              style={{
+                fontFamily: "var(--font-supporting)",
+                fontStyle: "italic",
+                fontSize: "14px",
+                color: "var(--soft-champagne-gold)",
+                display: "block",
+                margin: "6px 0"
+              }}
+            >
+              weds
+            </span>
+
+            {/* Bride */}
+            <div style={{ transform: "translateZ(20px)" }}>
               <h2
                 style={{
                   fontFamily: "var(--font-cursive)",
-                  fontSize: "clamp(58px, 14vw, 72px)",
+                  fontSize: "clamp(54px, 13.5vw, 68px)",
                   color: "var(--dark-olive-text)",
                   fontWeight: 400,
-                  lineHeight: 0.95
+                  lineHeight: 1.0
                 }}
               >
                 {couple.bride}
@@ -159,43 +132,42 @@ export default function MainInvitationSection() {
 
             <p
               style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: "13px",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
+                fontFamily: "var(--font-supporting)",
+                fontSize: "11.5px",
                 color: "var(--dark-olive-text)",
-                fontWeight: 500,
-                marginTop: "10px",
-                marginBottom: "14px"
+                lineHeight: 1.55,
+                marginTop: "4px",
+                marginBottom: "16px",
+                opacity: 0.9
               }}
             >
+              {couple.brideGrandparents}<br />
               {couple.brideParents}
             </p>
 
             <p
               style={{
                 fontFamily: "var(--font-heading)",
-                fontSize: "13.5px",
-                letterSpacing: "0.16em",
+                fontSize: "15px",
+                letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "var(--dark-olive-text)",
-                lineHeight: 1.5,
-                fontWeight: 400
+                color: "var(--soft-champagne-gold)",
+                fontWeight: 600
               }}
             >
-              FOR THEIR GOL DHANA<br />CEREMONY
+              {reveal.fullDateText}
             </p>
           </motion.div>
         </Card3D>
       </div>
 
-      {/* Wide Horizontal Floral Band with Hummingbird & Butterflies (exact match to frame_22/30) */}
+      {/* Wide Horizontal Floral Band with Hummingbird & Butterflies */}
       <motion.div
         initial={{ opacity: 0, y: 14 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.85, delay: 0.15 }}
-        style={{ width: "100%", marginTop: "14px", lineHeight: 0 }}
+        style={{ width: "100%", marginTop: "18px", lineHeight: 0 }}
       >
         <img
           src="assets/welcome-flowers-Dy0evJgO.png"
