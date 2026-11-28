@@ -1,5 +1,7 @@
+```jsx
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+
 import EnvelopeOpening from "./components/EnvelopeOpening";
 import FloralIntroScreen from "./components/FloralIntroScreen";
 import SpecialRevealSection from "./components/SpecialRevealSection";
@@ -13,27 +15,32 @@ export default function App() {
   const [isEnvelopeOpened, setIsEnvelopeOpened] = useState(false);
   const [playAudioRequested, setPlayAudioRequested] = useState(false);
 
+  // Handle Wedding Invitation Envelope Opening
   const handleEnvelopeComplete = () => {
     setIsEnvelopeOpened(true);
     setPlayAudioRequested(true);
   };
 
+  // Navigate to Wedding Date Reveal
   const handleScrollNext = () => {
     const el = document.getElementById("special-reveal-section");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
     <>
-      {/* 3D Floating Flower Petals & Blossoms */}
+      {/* 3D Floating Flower Petals & Wedding Blossoms */}
       <PetalCanvas active={isEnvelopeOpened} />
 
-      {/* Minimal Speaker Toggle (bottom-right, matching reference video) */}
+      {/* Background Wedding Music */}
       {isEnvelopeOpened && (
         <MusicPlayer isAutoPlayRequested={playAudioRequested} />
       )}
 
-      {/* 1. Opening Luxury 3D Envelope */}
+      {/* 1. Luxury Wedding Invitation Envelope */}
       <AnimatePresence>
         {!isEnvelopeOpened && (
           <EnvelopeOpening
@@ -43,7 +50,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Main 9:16 Invitation Mobile-First Viewport */}
+      {/* Main Wedding Invitation Experience */}
       <AnimatePresence>
         {isEnvelopeOpened && (
           <motion.div
@@ -52,19 +59,19 @@ export default function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
-            {/* 2. Floral Introduction Screen (exact video frame 12 + 3D parallax) */}
+            {/* 2. Floral Welcome Screen */}
             <FloralIntroScreen onScrollNext={handleScrollNext} />
 
-            {/* 3. Special Reveal Section ("A SPECIAL REVEAL", pink scratch heart) */}
+            {/* 3. Wedding Date Reveal - 5 December 2026 */}
             <SpecialRevealSection />
 
-            {/* 4. Main Wedding Invitation (Ganesha, Sanskrit, Rumit with Mahek, floral band) */}
+            {/* 4. Main Invitation - Ayush Weds Akanksha */}
             <MainInvitationSection />
 
-            {/* 5. Gol Dhana Ceremony Scalloped 3D Card on Sage Stripes */}
+            {/* 5. Wedding Celebrations - All 7 Events */}
             <WeddingEventsSection />
 
-            {/* 6. Final Closing Invitation (Mehta's & Shah's + corner florals + subtle RSVP) */}
+            {/* 6. Family Blessings, Compliments & RSVP */}
             <FinalInvitationSection />
           </motion.div>
         )}
@@ -72,3 +79,4 @@ export default function App() {
     </>
   );
 }
+```
